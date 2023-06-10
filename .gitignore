@@ -4,3 +4,4 @@ mlruns/
 .ipynb_checkpoints
 solutions/
 notebooks/clean-loan-data.csv
+.idea
