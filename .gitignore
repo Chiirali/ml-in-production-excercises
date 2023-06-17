@@ -6,3 +6,4 @@ solutions/
 notebooks/clean-loan-data.csv
 .idea
 .DS_Store
+/notebooks/artifacts/*
