@@ -18,8 +18,8 @@ spec:
         - name: frontend
           image: fluescher/sustaino-frontend
           env:
-            - name: ELIGIBILITY_API_ENDPOINT
-              value: http://eligibility-service:9000/predict
+          - name: ELIGIBILITY_API_ENDPOINT
+            value: http://mlproduction.dsiag.ch/seldon/tamara/tamara-model/api/v1.0/predictions
           ports:
             - containerPort: 8000
 ---

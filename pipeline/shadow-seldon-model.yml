@@ -1,0 +1,35 @@
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: tamara-model
+spec:
+  name: tamara-model
+  predictors:
+    - componentSpecs:
+        - spec:
+            containers:
+            - name: dummy-classifier
+              image: fluescher/sustaino-dummy-service
+      graph:
+        children: []
+        endpoint:
+          type: REST
+        name: dummy-classifier
+        type: MODEL
+      name: dummy-classifier
+      replicas: 1
+    - componentSpecs:
+        - spec:
+            containers:
+            - name: real-classifier
+              image: gcr.io/academy-300812/tamara/eligibility-service:latest
+      graph:
+        children: []
+        endpoint:
+          type: REST
+        name: real-classifier
+        type: MODEL
+      name: real-classifier
+      replicas: 1
+      shadow: true
+      traffic: 100
